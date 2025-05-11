@@ -1,0 +1,27 @@
+.expense-category-chart {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.expense-category-chart .section-header {
+    margin-bottom: 15px;
+}
+
+.expense-category-chart .section-header h2 {
+    font-size: 18px;
+    font-weight: 600;
+    margin: 0;
+}
+
+.expense-category-chart .chart-wrapper {
+    flex: 1;
+    position: relative;
+    height: calc(100% - 40px); /* Height minus the header */
+}
+
+@media (max-width: 900px) {
+    .expense-category-chart .chart-wrapper {
+        min-height: 250px;
+    }
+}

@@ -1,0 +1,35 @@
+.not-found-page {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 60vh;
+    text-align: center;
+}
+
+.not-found-content {
+    max-width: 500px;
+    padding: 40px;
+    background-color: white;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+}
+
+.not-found-content h1 {
+    font-size: 72px;
+    color: var(--primary-color);
+    margin-bottom: 10px;
+}
+
+.not-found-content h2 {
+    font-size: 24px;
+    margin-bottom: 15px;
+}
+
+.not-found-content p {
+    margin-bottom: 20px;
+    color: #666;
+}
+
+.not-found-content .btn {
+    padding: 10px 20px;
+}

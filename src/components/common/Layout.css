@@ -1,0 +1,54 @@
+/* Layout.css */
+.layout {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Mobile sidebar overlay styles */
+.mobile-sidebar-open .ant-layout-sider {
+    position: fixed !important;
+    z-index: 999 !important;
+    height: 100vh !important;
+    box-shadow: 2px 0 8px rgba(0, 0, 0, 0.15) !important;
+}
+
+.mobile-sidebar-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.45);
+    z-index: 998;
+    display: none;
+}
+
+.mobile-sidebar-open .mobile-sidebar-overlay {
+    display: block;
+}
+
+/* Transitions for smooth sidebar toggle */
+.ant-layout,
+.ant-layout-sider,
+.ant-layout-content {
+    transition: all 0.3s;
+}
+
+/* Mobile styles */
+@media (max-width: 768px) {
+    .ant-layout-header {
+        padding: 0 12px !important;
+        height: 56px !important;
+        line-height: 56px !important;
+    }
+
+    .ant-layout-content {
+        margin: 8px !important;
+        padding: 12px !important;
+    }
+    
+    .ant-layout-footer {
+        padding: 12px !important;
+    }
+}
