@@ -1,10 +1,10 @@
 {
   "files": {
-    "main.css": "/static/css/main.da6b93dd.css",
-    "main.js": "/static/js/main.6b9d2b1b.js",
-    "index.html": "/index.html",
-    "main.da6b93dd.css.map": "/static/css/main.da6b93dd.css.map",
-    "main.6b9d2b1b.js.map": "/static/js/main.6b9d2b1b.js.map"
+    "main.css": "/Finance-Tracker-React-Project/static/css/main.da6b93dd.css",
+    "main.js": "/Finance-Tracker-React-Project/static/js/main.6b9d2b1b.js",
+    "index.html": "/Finance-Tracker-React-Project/index.html",
+    "main.da6b93dd.css.map": "/Finance-Tracker-React-Project/static/css/main.da6b93dd.css.map",
+    "main.6b9d2b1b.js.map": "/Finance-Tracker-React-Project/static/js/main.6b9d2b1b.js.map"
   },
   "entrypoints": [
     "static/css/main.da6b93dd.css",
