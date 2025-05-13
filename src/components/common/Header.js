@@ -43,14 +43,14 @@ const Header = ({ toggleCollapsed, collapsed, sidebarVisible, toggleSidebarVisib
                     }
                 />
                 
-                {/* <h1 style={{ 
+                <h1 style={{ 
                     margin: '0 0 0 15px', 
-                    fontSize: '1.5rem', 
+                    fontSize: isMobile ? '1.2rem' : '1.5rem', 
                     fontWeight: 600, 
                     color: 'white' 
                 }}>
                     FinanceTracker
-                </h1> */}
+                </h1>
             </div>
             <div style={{ display: 'flex', alignItems: 'center' }}>
                 {!isMobile && (

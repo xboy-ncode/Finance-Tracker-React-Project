@@ -6,7 +6,6 @@ import {
     DollarOutlined,
     FileTextOutlined,
     SettingOutlined,
-
 } from '@ant-design/icons';
 import PropTypes from 'prop-types';
 
@@ -38,8 +37,6 @@ const Sidebar = ({ collapsed, toggleCollapsed, visible = true }) => {
         label: item.label
     }));
 
-
-
     // Handle menu item clicks
     const handleMenuClick = (info) => {
         navigate(info.key);
@@ -68,30 +65,33 @@ const Sidebar = ({ collapsed, toggleCollapsed, visible = true }) => {
                 width={250}
                 style={{
                     overflow: 'auto',
-                    height: '100vh',
-                    position: 'fixed',
+                    height: isMobile ? 'auto' : '100vh',
+                    position: isMobile ? 'absolute' : 'fixed',
                     left: 0,
-                    top: 0,
+                    top: isMobile ? 56 : 0, // Place dropdown below header in mobile
                     bottom: 0,
                     zIndex: isMobile ? 999 : 1,
-                    //boxShadow: '2px 0 5px rgba(0, 0, 0, 0.1)',
+                    boxShadow: isMobile ? '0 4px 8px rgba(0, 0, 0, 0.15)' : '2px 0 5px rgba(0, 0, 0, 0.1)',
                     transition: 'all 0.2s',
-                    backgroundColor: '#4682B4' // Match header color
+                    backgroundColor: '#4682B4', // Match header color
+                    display: (isMobile && collapsed) ? 'none' : 'block' // Hide when collapsed on mobile
                 }}
                 theme="dark" // Use dark theme for better contrast with blue background
             >
-                <div style={{
-                    height: 64,
-                    margin: 16,
-                    display: 'flex',
-                    justifyContent: 'center',
-                    alignItems: 'center',
-                }}>
-                    {/* Logo area */}
-                    <h2 style={{ margin: 0, color: 'white' }}>
-                        {collapsed ? 'FT' : 'FinanceTracker'}
-                    </h2>
-                </div>
+                {!isMobile && (
+                    <div style={{
+                        height: 64,
+                        margin: 16,
+                        display: 'flex',
+                        justifyContent: 'center',
+                        alignItems: 'center',
+                    }}>
+                        {/* Logo area - only show in desktop mode */}
+                        <h2 style={{ margin: 0, color: 'white' }}>
+                            {collapsed ? 'FT' : 'FinanceTracker'}
+                        </h2>
+                    </div>
+                )}
 
                 <Menu
                     mode="inline"
@@ -104,8 +104,6 @@ const Sidebar = ({ collapsed, toggleCollapsed, visible = true }) => {
                         borderRight: 'none' // Remove border
                     }}
                 />
-                
-
             </Sider>
         </>
     );

@@ -29,6 +29,7 @@ import {
 } from '@ant-design/icons';
 import { mockTransactionsData } from '../utils/mockData';
 import dayjs from 'dayjs';
+import AddTransactionForm from '../components/transactions/AddTransactionForm';
 
 const { Title, Text } = Typography;
 const { Option } = Select;
@@ -47,6 +48,8 @@ const TransactionsPage = () => {
     const [drawerVisible, setDrawerVisible] = useState(false);
     const [deleteModalVisible, setDeleteModalVisible] = useState(false);
     const [transactionToDelete, setTransactionToDelete] = useState(null);
+    // Add missing state for form visibility
+    const [showAddForm, setShowAddForm] = useState(false);
 
     // Categories and types for filters
     const categories = ['Alimentación', 'Transporte', 'Entretenimiento', 'Servicios', 'Compras', 'Salud', 'Educación', 'Vivienda', 'Otros'];
@@ -95,6 +98,11 @@ const TransactionsPage = () => {
         setTransactions(transactions.filter(t => t.id !== transactionToDelete.id));
         setDeleteModalVisible(false);
         setTransactionToDelete(null);
+    };
+
+    // Add function to handle adding a new transaction
+    const handleAddTransaction = (newTransaction) => {
+        setTransactions([newTransaction, ...transactions]);
     };
 
     // Filter transactions based on search and filters
@@ -249,12 +257,21 @@ const TransactionsPage = () => {
             />
         );
     }
+    
+    // Función para abrir el formulario
+    const openAddForm = () => {
+        setShowAddForm(true);
+    };
+
+    // Función para cerrar el formulario
+    const closeAddForm = () => {
+        setShowAddForm(false);
+    };
 
     return (
         <div className="transactions-container">
             <div className="transactions-header">
                 <div className="header-title">
-                    <DollarOutlined className="transactions-icon" />
                     <Title level={2}>Registro de Transacciones</Title>
                 </div>
 
@@ -263,14 +280,18 @@ const TransactionsPage = () => {
                     type="primary"
                     icon={<PlusOutlined />}
                     size="large"
-                    onClick={() => console.log('Add new transaction')}
+                    onClick={openAddForm}
+                    style={{ marginBottom: '16px' }}
                 >
                     Nueva Transacción
                 </Button>
+                {showAddForm && <AddTransactionForm onAddTransaction={handleAddTransaction} onCancel={closeAddForm} />}
             </div>
 
             {/* Filters and Search */}
-            <Card className="filters-card">
+            <Card className="filters-card"
+                style={{ marginBottom: '16px' }}
+            >
                 <Row gutter={[16, 16]} align="middle">
                     <Col xs={24} sm={12} md={8} lg={6}>
                         <Input
@@ -340,6 +361,7 @@ const TransactionsPage = () => {
                     onRow={(record) => ({
                         onClick: () => handleViewTransaction(record),
                     })}
+                    scroll={{ x: 'max-content' }}
                     className="transactions-table"
                     summary={(pageData) => {
                         // Calculate totals for the filtered transactions
@@ -396,7 +418,7 @@ const TransactionsPage = () => {
                 title="Detalles de Transacción"
                 placement="right"
                 onClose={() => setDrawerVisible(false)}
-                visible={drawerVisible}
+                open={drawerVisible}
                 width={500}
             >
                 {selectedTransaction && (
@@ -474,7 +496,7 @@ const TransactionsPage = () => {
             {/* Delete Confirmation Modal */}
             <Modal
                 title="Confirmar eliminación"
-                visible={deleteModalVisible}
+                open={deleteModalVisible}
                 onOk={handleDeleteTransaction}
                 onCancel={() => setDeleteModalVisible(false)}
                 okText="Sí, eliminar"

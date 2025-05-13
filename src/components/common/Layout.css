@@ -6,13 +6,6 @@
 }
 
 /* Mobile sidebar overlay styles */
-.mobile-sidebar-open .ant-layout-sider {
-    position: fixed !important;
-    z-index: 999 !important;
-    height: 100vh !important;
-    box-shadow: 2px 0 8px rgba(0, 0, 0, 0.15) !important;
-}
-
 .mobile-sidebar-overlay {
     position: fixed;
     top: 0;
@@ -28,11 +21,41 @@
     display: block;
 }
 
+/* Mobile sidebar styles */
+.mobile-sidebar-open .ant-layout-sider {
+    left: 0 !important;
+}
+
 /* Transitions for smooth sidebar toggle */
 .ant-layout,
 .ant-layout-sider,
 .ant-layout-content {
     transition: all 0.3s;
+}
+
+/* Mobile dropdown menu animations */
+@keyframes sidebarSlideIn {
+    from {
+        transform: translateX(-100%);
+    }
+    to {
+        transform: translateX(0);
+    }
+}
+
+.mobile-sidebar-open .ant-layout-sider {
+    animation: sidebarSlideIn 0.3s ease-out;
+}
+
+/* Sidebar styles */
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh; /* Full viewport height */
+    overflow-y: auto; /* Scrollable if content overflows */
+    z-index: 1000; /* Ensure it stays above other elements */
+    background-color: #fff; /* Match your sidebar background */
 }
 
 /* Mobile styles */
@@ -41,6 +64,7 @@
         padding: 0 12px !important;
         height: 56px !important;
         line-height: 56px !important;
+        z-index: 1001 !important; /* Ensure header stays above sidebar */
     }
 
     .ant-layout-content {
@@ -50,5 +74,16 @@
     
     .ant-layout-footer {
         padding: 12px !important;
+    }
+    
+    /* Mobile menu styling */
+    .ant-menu-item {
+        height: 48px !important;
+        line-height: 48px !important;
+    }
+    
+    /* Ensure sidebar menu starts below header */
+    .ant-layout-sider-children {
+        padding-top: 56px;
     }
 }

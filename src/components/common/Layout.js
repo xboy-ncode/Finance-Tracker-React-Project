@@ -13,7 +13,7 @@ const { useBreakpoint } = Grid;
 
 const Layout = () => {
     const [collapsed, setCollapsed] = useState(false);
-    const [sidebarVisible, setSidebarVisible] = useState(true); // Add state for sidebar visibility
+    const [sidebarVisible, setSidebarVisible] = useState(true);
     const location = useLocation();
     const screens = useBreakpoint();
     const isMobile = !screens.md; // Consider screens smaller than md as mobile
@@ -46,6 +46,7 @@ const Layout = () => {
     return (
         <AntLayout className={isMobile && !collapsed ? 'mobile-sidebar-open' : ''} style={{ minHeight: '100vh' }}>
             <Sidebar 
+                className="sidebar"
                 collapsed={collapsed} 
                 toggleCollapsed={toggleCollapsed}
                 visible={sidebarVisible}

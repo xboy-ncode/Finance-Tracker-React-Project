@@ -360,7 +360,7 @@ const Settings = () => {
         <div className="configuration-container">
             <div className="configuration-header">
                 <div className="header-title">
-                    <SettingOutlined className="configuration-icon" />
+                    {/* <SettingOutlined className="configuration-icon" /> */}
                     <Title level={2}>Configuración</Title>
                 </div>
             </div>

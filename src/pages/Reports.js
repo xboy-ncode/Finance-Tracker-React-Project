@@ -370,11 +370,13 @@ const ReportsPage = () => {
         <div className="reports-container">
             <div className="reports-header">
                 <div className="header-title">
-                    <BarChartOutlined className="reports-icon" />
+                    {/* <BarChartOutlined className="reports-icon" /> */}
                     <Title level={2}>Informes Financieros</Title>
                 </div>
 
-                <Space>
+                <Space
+                style={{ marginBottom: 16 }}
+                >
                     <Button
                         icon={<ReloadOutlined />}
                         onClick={handleRefresh}
@@ -397,7 +399,9 @@ const ReportsPage = () => {
             </div>
 
             {/* Filters */}
-            <Card className="filters-card">
+            <Card className="filters-card"
+            style={{ marginBottom: 12 }}
+            >
                 <Row gutter={[16, 16]} align="middle">
                     <Col xs={24} sm={12} md={8} lg={6}>
                         <Select
@@ -426,7 +430,9 @@ const ReportsPage = () => {
             </Card>
 
             {/* Summary Cards */}
-            <Row gutter={[16, 16]} className="summary-cards">
+            <Row gutter={[16, 16]} className="summary-cards"
+            style={{ marginBottom: 12 }}
+            >
                 <Col xs={24} sm={12} md={6}>
                     <Card className="summary-card income-card">
                         <div className="summary-icon">

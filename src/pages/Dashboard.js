@@ -73,7 +73,7 @@ const Dashboard = () => {
         <div className="dashboard-container">
             <div className="dashboard-header">
                 <div className="header-title">
-                    <DashboardOutlined className="dashboard-icon" />
+                    {/* <DashboardOutlined className="dashboard-icon" /> */}
                     <Title level={2}>Panel de Control Financiero</Title>
                 </div>
                 <div className="date-filter">
@@ -82,6 +82,8 @@ const Dashboard = () => {
                         defaultValue={timePeriod} 
                         onChange={handlePeriodChange}
                         className="period-select"
+                        style={{ width: 200, marginLeft: 16 }}
+                        dropdownStyle={{ zIndex: 1000 }} // Ensure dropdown is above other elements
                     >
                         <Option value="this-month">Este mes</Option>
                         <Option value="last-month">Mes pasado</Option>
