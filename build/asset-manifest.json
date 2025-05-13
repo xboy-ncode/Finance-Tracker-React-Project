@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/Finance-Tracker-React-Project/static/css/main.da6b93dd.css",
-    "main.js": "/Finance-Tracker-React-Project/static/js/main.6b9d2b1b.js",
-    "index.html": "/Finance-Tracker-React-Project/index.html",
-    "main.da6b93dd.css.map": "/Finance-Tracker-React-Project/static/css/main.da6b93dd.css.map",
-    "main.6b9d2b1b.js.map": "/Finance-Tracker-React-Project/static/js/main.6b9d2b1b.js.map"
+    "main.css": "/static/css/main.a4645281.css",
+    "main.js": "/static/js/main.d127ae65.js",
+    "index.html": "/index.html",
+    "main.a4645281.css.map": "/static/css/main.a4645281.css.map",
+    "main.d127ae65.js.map": "/static/js/main.d127ae65.js.map"
   },
   "entrypoints": [
-    "static/css/main.da6b93dd.css",
-    "static/js/main.6b9d2b1b.js"
+    "static/css/main.a4645281.css",
+    "static/js/main.d127ae65.js"
   ]
 }
